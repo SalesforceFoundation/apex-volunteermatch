@@ -1,0 +1,9 @@
+.project
+.settings
+salesforce.schema
+Referenced Packages
+apex-scripts
+VolunteerMatch.sublime*
+.DS_Store
+config
+src/package.xml
