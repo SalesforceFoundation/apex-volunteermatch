@@ -15,7 +15,9 @@ Usage:
 	vm = new VolunteerMatch();
 	System.debug(vm.helloWorld('Chris').result);
 
-	// Search all Organizations
+    ////////////////// searchOrganizations examples //////////////////
+
+	// Search all Organizations in San Francisco
 	for(VolunteerMatch.Organization o : vm.searchOrganizations(null, null, new List<String>{'id', 'name'}, null, null, 'San Francisco, CA', null, null, null, null, 20, null, 1, null, '', '', '', null).organizations) {
 		System.debug(o.name + ' (' + o.id + ')');
 	}
@@ -94,6 +96,111 @@ Usage:
 	for(VolunteerMatch.Organization o : vm.searchOrganizations(null, null, new List<String>{'id', 'name'}, null, null, 'San Francisco, CA', null, null, null, null, 20, null, 1, null, '', '', '', new List<Integer>{2, 4, 5, 6, 7,
 		8}).organizations) {
 		System.debug(o.name + ' (' + o.id + ')');
+	}
+
+	////////////////// searchOpportunities examples //////////////////:
+
+	// Search all Opportunities in San Francisco
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities in San Francisco with all return values
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'allowGroupInvitations', 'allowGroupReservation', 'availability', 'beneficiary', 'categoryIds', 'contact', 'created', 'currentPage', 'description', 'greatFor', 'hasWaitList', 'id', 'imageUrl', 'location', 'minimumAge', 'numReferred', 'parentOrg', 'plaintextDescription', 'plaintextRequirements', 'plaintextSkillsNeeded', 'referralFields', 'requirements', 'requirementsMap', 'requiresAddress', 'resultsSize', 'skillsList', 'skillsNeeded', 'spacesAvailable', 'status', 'tags', 'title', 'type', 'updated', 'virtual', 'vmUrl', 'volunteersNeeded'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities with specific Category IDs
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(new List<Integer>{30, 38}, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities between two dates
+	VolunteerMatch.DateRange dr = new VolunteerMatch.DateRange();
+	dr.startDate = '2015-01-01';
+	dr.endDate = '2015-02-01';
+
+	List<VolunteerMatch.DateRange> drList = new List<VolunteerMatch.DateRange>();	
+	drList.add(dr);
+	
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, drList, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities with "dogs" in the description
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, new List<String>{'dogs'}, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities that are great for kids
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, new List<String>{'k'}, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search Opportunity with a specific ID
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, new List<String>{'1455735'}, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+	
+	// Search all Opportunities with "homeless" in the keywords
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, new List<String>{'homeless'}, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Return only 3 results
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 3, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities that are private - only works if API key doesn't operate 
+	// on public opportunities
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, new List<String>{'private'}, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities with a specific Org ID
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, new List<Integer>{26434}, null, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+	
+	// Search all Opportunities with a specific organization name
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, new List<String>{'Castro'}, '', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities with a specific EIN - doesn't seem to work
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '94-3088881', 1, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+	
+	// Search all Opportunities with associated partner IDs
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, new List<Integer>{3, 5}, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities within a 25 mile radius of San Francisco
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 25, null, '', null, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities by skill "programming"
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', new List<String>{'programming'}, '', '', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities sorting by Organization Name in descending order
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, 'orgname', 'desc', '', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities updated since a certain date
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '2015-05-08T19:11:04Z', null).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all US-Corps related Opportunities
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', new List<Integer>{2, 4, 5, 6, 7, 8}).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
 	}
 
 The package includes a custom setting where you can store your Account Name and Secret API Key. This way, you won't have to pass them in when you initialize the API class.
