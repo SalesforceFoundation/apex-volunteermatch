@@ -98,7 +98,7 @@ Usage:
 		System.debug(o.name + ' (' + o.id + ')');
 	}
 
-	////////////////// searchOpportunities examples //////////////////:
+	////////////////// searchOpportunities examples //////////////////
 
 	// Search all Opportunities in San Francisco
 	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
