@@ -392,6 +392,63 @@ global virtual with sharing class VolunteerMatch {
 	}
 
 	/**
+	** Convenience function to search for a specific organization by ID.  Returns null with no result.
+	**
+	** id The ID of the organization to get
+	**/
+	public Organization searchOrganizationsById(String id) {
+		List<String> idList = new List<String>{};
+		idList.add(id);
+
+		OrganizationSearch os = searchOrganizations(null, null, new List<String>{'id', 'name', 'url', 
+			'location', 'description', 'plaintextDescription', 'mission', 'plaintextMission', 'imageUrl', 
+			'created', 'updated', 'numReviews', 'avgRating', 'contact', 'categoryIds', 'vmUrl', 'type', 'ein', 
+			'classification'}, idList, null, null, null, null, null, null, null, null, null, null, null, null, 
+			null, null);
+
+		if (os.resultsSize > 0) {
+			return os.organizations[0];
+		}
+		return null;
+	}
+
+	/**
+	** Convenience function to search for a specific organization by location with pagination.
+	**
+	** location search for organizations in a specific area
+	** numberOfResults the number of results to return; defaults to 20. This maybe limited by your key, see 
+	**                 getKeyStatus for more information
+	** pageNumber the page number of results to return; will always be normalized to return at least some results if 
+	**            any are available
+	**/
+	public OrganizationSearch searchOrganizations(String location, Integer numberOfResults, Integer pageNumber) {
+		return searchOrganizations(null, null, new List<String>{'id', 'name', 'url', 'location', 'description', 
+			'plaintextDescription', 'mission', 'plaintextMission', 'imageUrl', 'created', 'updated', 
+			'numReviews', 'avgRating', 'contact', 'categoryIds', 'vmUrl', 'type', 'ein', 'classification'}, null, 
+			null, location, null, null, null, null, numberOfResults, null, pageNumber, null, null, null, null, null);
+	}
+
+	/**
+	** Convenience function to search for a specific organization by location with pagination and sorting.
+	**
+	** location search for organizations in a specific area
+	** numberOfResults the number of results to return; defaults to 20. This maybe limited by your key, see 
+	**                 getKeyStatus for more information
+	** pageNumber the page number of results to return; will always be normalized to return at least some results if 
+	**            any are available
+	** sortCriteria sorting criteria
+	** sortOrder the sort order, asc or desc
+	**/
+	public OrganizationSearch searchOrganizations(String location, Integer numberOfResults, Integer pageNumber,
+		String sortCriteria, String sortOrder) {
+		return searchOrganizations(null, null, new List<String>{'id', 'name', 'url', 'location', 'description', 
+			'plaintextDescription', 'mission', 'plaintextMission', 'imageUrl', 'created', 'updated', 
+			'numReviews', 'avgRating', 'contact', 'categoryIds', 'vmUrl', 'type', 'ein', 'classification'}, null, 
+			null, location, null, null, null, null, numberOfResults, null, pageNumber, null, null, sortCriteria, 
+			sortOrder, null);
+	}
+
+	/**
 	** Search for matching Opportunities. By default, all active Opportunities available to the key will be searched. 
 	** For "public" and "featured" opportunities, contact information is limited to "firstName" and "lastName". 
 	** For "private" and "project" opportunities, contact information includes "firstName","lastName","email", 
@@ -551,6 +608,62 @@ global virtual with sharing class VolunteerMatch {
 			os.responseJson = JSON.serializePretty(os);
 		}
 		return os;
+	}
+
+	public VolunteerOpportunity searchOpportunitiesById(String id) {
+		List<String> idList = new List<String>{};
+		idList.add(id);
+
+		OpportunitySearch os = searchOpportunities(null, null, null, new List<String>{'allowGroupInvitations', 
+			'allowGroupReservation', 'availability', 'beneficiary', 'categoryIds', 'contact', 'created', 
+			'currentPage', 'description', 'greatFor', 'hasWaitList', 'id', 'imageUrl', 'location', 'minimumAge', 
+			'numReferred', 'parentOrg', 'plaintextDescription', 'plaintextRequirements', 'plaintextSkillsNeeded', 
+			'referralFields', 'requirements', 'requirementsMap', 'requiresAddress', 'resultsSize', 'skillsList', 
+			'skillsNeeded', 'spacesAvailable', 'status', 'tags', 'title', 'type', 'updated', 'virtual', 'vmUrl', 
+			'volunteersNeeded'}, null, idList, null, null, null, null, null, null, null, null, null, null, null, 
+			null, null, null, null);
+
+		if (os.resultsSize > 0) {
+			return os.opportunities[0];
+		}
+		return null;
+	}
+
+	public OpportunitySearch searchOpportunitiesByOrgId(Integer orgId, Integer numberOfResults, Integer pageNumber) {
+
+		return searchOpportunities(null, null, null, new List<String>{'allowGroupInvitations', 
+			'allowGroupReservation', 'availability', 'beneficiary', 'categoryIds', 'contact', 'created', 
+			'currentPage', 'description', 'greatFor', 'hasWaitList', 'id', 'imageUrl', 'location', 'minimumAge', 
+			'numReferred', 'parentOrg', 'plaintextDescription', 'plaintextRequirements', 'plaintextSkillsNeeded', 
+			'referralFields', 'requirements', 'requirementsMap', 'requiresAddress', 'resultsSize', 'skillsList', 
+			'skillsNeeded', 'spacesAvailable', 'status', 'tags', 'title', 'type', 'updated', 'virtual', 'vmUrl', 
+			'volunteersNeeded'}, null, null, null, null, numberOfResults, null, orgId, null, null, pageNumber, 
+			null, null, null, null, null, null, null);
+	}
+
+	public OpportunitySearch searchOpportunities(String location, Integer numberOfResults, Integer pageNumber) {
+
+		return searchOpportunities(null, null, null, new List<String>{'allowGroupInvitations', 
+			'allowGroupReservation', 'availability', 'beneficiary', 'categoryIds', 'contact', 'created', 
+			'currentPage', 'description', 'greatFor', 'hasWaitList', 'id', 'imageUrl', 'location', 'minimumAge', 
+			'numReferred', 'parentOrg', 'plaintextDescription', 'plaintextRequirements', 'plaintextSkillsNeeded', 
+			'referralFields', 'requirements', 'requirementsMap', 'requiresAddress', 'resultsSize', 'skillsList', 
+			'skillsNeeded', 'spacesAvailable', 'status', 'tags', 'title', 'type', 'updated', 'virtual', 'vmUrl', 
+			'volunteersNeeded'}, null, null, null, location, numberOfResults, null, null, null, null, pageNumber, 
+			null, null, null, null, null, null, null);
+	}
+
+	public OpportunitySearch searchOpportunities(String location, Integer numberOfResults, Integer pageNumber,
+		String sortCriteria, String sortOrder) {
+
+		return searchOpportunities(null, null, null, new List<String>{'allowGroupInvitations', 
+			'allowGroupReservation', 'availability', 'beneficiary', 'categoryIds', 'contact', 'created', 
+			'currentPage', 'description', 'greatFor', 'hasWaitList', 'id', 'imageUrl', 'location', 'minimumAge', 
+			'numReferred', 'parentOrg', 'plaintextDescription', 'plaintextRequirements', 'plaintextSkillsNeeded', 
+			'referralFields', 'requirements', 'requirementsMap', 'requiresAddress', 'resultsSize', 'skillsList', 
+			'skillsNeeded', 'spacesAvailable', 'status', 'tags', 'title', 'type', 'updated', 'virtual', 'vmUrl', 
+			'volunteersNeeded'}, null, null, null, location, numberOfResults, null, null, null, null, pageNumber, 
+			null, null, null, sortCriteria, sortOrder, null, null);
 	}
 
 

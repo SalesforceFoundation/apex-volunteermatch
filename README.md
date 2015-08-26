@@ -22,13 +22,26 @@ Usage:
 
     ////////////////// searchOrganizations examples //////////////////
 
-	// Search all Organizations in San Francisco
-	for(VolunteerMatch.Organization o : vm.searchOrganizations(null, null, new List<String>{'id', 'name'}, null, null, 'San Francisco, CA', null, null, null, null, 20, null, 1, null, '', '', '', null).organizations) {
+	// Search for Organization with ID 78154
+    System.debug(vm.searchOrganizationsById('78154').name);
+    
+	// Search all Organizations in San Francisco (simplified)
+	for(VolunteerMatch.Organization o : vm.searchOrganizations('San Francisco, CA', 5, 1).organizations) {
 		System.debug(o.name + ' (' + o.id + ')');
 	}
 
+	// Search all Organizations in San Francisco (simplified) and order by name
+	for(VolunteerMatch.Organization o : vm.searchOrganizations('San Francisco, CA', 5, 1, 'name', 'asc').organizations) {
+		System.debug(o.name + ' (' + o.id + ')');
+	}
+	
+	// Search all Organizations in San Francisco (advanced)
+	for(VolunteerMatch.Organization o : vm.searchOrganizations(null, null, new List<String>{'id', 'name'}, null, null, 'San Francisco, CA', null, null, null, null, 20, null, 1, null, '', '', '', null).organizations) {
+		System.debug(o.name + ' (' + o.id + ')');
+	}
+	
 	// Search all Organizations with all return values
-	for(VolunteerMatch.Organization o : vm.searchOrganizations(null, null, new List<String>{'id', 'name','ur', 'location', 'description', 'plaintextDescription', 'mission', 'plaintextMission', 'imageUrl', 'created', 'updated', 'numReviews', 'avgRating', 'contact', 'categoryIds', 'vmUrl', 'type', 'ein', 'classification'}, null, null, 'San Francisco, CA', null, null, null, null, 20, null, 1, null, '', '', '', null).organizations) {
+	for(VolunteerMatch.Organization o : vm.searchOrganizations(null, null, new List<String>{'id', 'name', 'url', 'location', 'description', 'plaintextDescription', 'mission', 'plaintextMission', 'imageUrl', 'created', 'updated', 'numReviews', 'avgRating', 'contact', 'categoryIds', 'vmUrl', 'type', 'ein', 'classification'}, null, null, 'San Francisco, CA', null, null, null, null, 20, null, 1, null, '', '', '', null).organizations) {
 		System.debug(o.name + ' (' + o.id + ')');
 	}
 
@@ -105,7 +118,24 @@ Usage:
 
 	////////////////// searchOpportunities examples //////////////////
 
-	// Search all Opportunities in San Francisco
+	// Search for Opportunity with ID 1289402
+	System.debug(vm.searchOpportunitiesById('1289402').title);
+
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunitiesByOrgId(26434, 5, 1).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities in San Francisco (simple)
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities('San Francisco', 5, 1).opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities in San Francisco (simple) sorted by distance
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities('San Francisco', 5, 1, 'distance', 'asc').opportunities) {
+		System.debug(o.title + ' (' + o.id + ')');
+	}
+
+	// Search all Opportunities in San Francisco (advanced)
 	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, '', '', '', null).opportunities) {
 		System.debug(o.title + ' (' + o.id + ')');
 	}
@@ -193,8 +223,8 @@ Usage:
 		System.debug(o.title + ' (' + o.id + ')');
 	}
 
-	// Search all Opportunities sorting by Organization Name in descending order
-	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, 'orgname', 'desc', '', null).opportunities) {
+	// Search all Opportunities sorting by distance in descending order
+	for(VolunteerMatch.VolunteerOpportunity o : vm.searchOpportunities(null, null, null, new List<String>{'id', 'title'}, null, null, null, 'San Francisco', 20, null, null, null, '', 1, null, '', null, 'distance', 'desc', '', null).opportunities) {
 		System.debug(o.title + ' (' + o.id + ')');
 	}
 

@@ -50,10 +50,16 @@ private class VolunteerMatchTest {
 	 		new List<String>{'26278'}, new List<String>{'social'}, 'San Francisco, CA', new List<String>{'social'}, 
 	 		new List<String>{'One Brick'}, new List<String>{'0'}, '77-0593889', 1, new List<String>{'public'}, 1, 
 	 		new List<Integer>{0}, '20', 'name', 'asc', new List<Integer>{5});
+		VolunteerMatch.Organization o = vm.searchOrganizationsById('78154');
+		VolunteerMatch.OrganizationSearch os2 = vm.searchOrganizations('San Francisco', 5, 1);
+		VolunteerMatch.OrganizationSearch os3 = vm.searchOrganizations('San Francisco', 5, 1, 'name', 'asc');
 		system.debug(os);
 		test.stopTest();
 
 		System.assertNotEquals(null, os.responseJson);
+		System.assertNotEquals(null, o);
+		System.assertNotEquals(null, os2.responseJson);
+		System.assertNotEquals(null, os3.responseJson);
 		System.assertEquals(1, os.currentPage);
 		System.assertEquals(1, os.resultsSize);
 		System.assertEquals('One Brick', os.organizations[0].name);
@@ -85,9 +91,17 @@ private class VolunteerMatchTest {
 	 		new List<Integer>{0}, '20', new List<String>{'Internet Research'}, 'name', 'ASC', '2015-01-01', 
 	 		new List<Integer>{5});
 		system.debug(os);
+		VolunteerMatch.VolunteerOpportunity o = vm.searchOpportunitiesById('1234');
+		VolunteerMatch.OpportunitySearch os2 = vm.searchOpportunitiesByOrgId(1234, 5, 1);
+		VolunteerMatch.OpportunitySearch os3 = vm.searchOpportunities('San Francisco', 5, 1);
+		VolunteerMatch.OpportunitySearch os4 = vm.searchOpportunities('San Francisco', 5, 1, 'distance', 'asc');
 		test.stopTest();
 
 		System.assertNotEquals(null, os.responseJson);
+		System.assertNotEquals(null, o);
+		System.assertNotEquals(null, os2.responseJson);
+		System.assertNotEquals(null, os3.responseJson);
+		System.assertNotEquals(null, os4.responseJson);
 		System.assertEquals(1, os.currentPage);
 		System.assertEquals(1, os.resultsSize);
 		System.assertEquals('NIAD Art Center', os.opportunities[0].parentOrg.name);
