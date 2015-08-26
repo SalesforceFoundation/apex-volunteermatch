@@ -38,6 +38,36 @@ global virtual with sharing class VolunteerMatch {
 		public String responseJson;
 	}
 
+	public class MetaData {
+		public List<Categories> categories;
+		public List<String> hoursTrackingEmployeeEnteredOppFields;
+		public List<String> hoursTrackingEmployeeEnteredOrgFields;
+		public List<OpportunityTypes> opportunityTypes;
+		public List<Categories> partners;
+		public List<String> passwordRules;
+		public List<String> radii;
+		public List<StandardRegistrationFields> standardRegistrationFields;
+		public List<Categories> usCorps;
+		public Boolean useHoursIncrements;
+		public Integer version;
+		public String responseJson;
+	}
+
+	public class OpportunityTypes {
+		public String id;
+		public String label;
+	}
+
+	public class StandardRegistrationFields {
+		public Boolean managed;
+		public String name;
+	}
+
+	public class Categories {
+		public Integer id;
+		public String name;
+	}
+
 	public class OrganizationSearch {
 		public Integer currentPage;
 		public List<Organization> organizations;
@@ -202,19 +232,26 @@ global virtual with sharing class VolunteerMatch {
 		return hw;
 	}
 
-/*
-	public void getMetadata(Integer version) {
-		JSONGenerator gen = JSON.createGenerator(true);
-		gen.writeStartObject();
-		gen.writeStringField('version', String.valueOf(version));
-		gen.writeEndObject();
-		String jsonString = gen.getAsString();
 
-		String returnJSON = callVolunteerMatch('getMetadata', jsonString);
-		System.debug(returnJSON);
+	/**
+	** Get metadata, including Partners and Categories. Generally, this information will be used to provide 
+	** search interfaces.  The information returned by this method is essentially static, changing very 
+	** rarely – in the case of client information, changes only occur with client knowledge, for instance.
+	** If you use this method to populate lists or interface elements, it is recommended that you retrieve this 
+	** data and cache it locally. 
+	**/
+	public MetaData getMetaData() {
+		MetaData md = new MetaData();
 
+		String returnJSON = callVolunteerMatch('getMetaData', '{}');
+
+		if (returnJSON != null) {
+			md = ((MetaData)(JSON.deserialize(returnJSON, MetaData.class)));
+			md.responseJson = JSON.serializePretty(md);
+		}
+		return md;
 	}
-*/
+
 
 	/**
 	** Search for matching organizations. By default, all active organizations available to the given key will be 

@@ -2,6 +2,7 @@
 private class VolunteerMatchTest {
 
 	public static final String helloWorldJson = '{\"name\": \"Kemp\", \"result\": \"Hello Kemp!\"}';
+	public static final String getMetaDataJson = '{\"categories\":[{\"id\":23,\"name\":\"Advocacy & Human Rights\"},{\"id\":30,\"name\":\"Animals\"},{\"id\":34,\"name\":\"Arts & Culture\"},{\"id\":38,\"name\":\"Board Development\"},{\"id\":22,\"name\":\"Children & Youth\"},{\"id\":25,\"name\":\"Community\"},{\"id\":37,\"name\":\"Computers & Technology\"},{\"id\":14,\"name\":\"Crisis Support\"},{\"id\":42,\"name\":\"Disaster Relief\"},{\"id\":15,\"name\":\"Education & Literacy\"},{\"id\":28,\"name\":\"Emergency & Safety\"},{\"id\":27,\"name\":\"Employment\"},{\"id\":13,\"name\":\"Environment\"},{\"id\":36,\"name\":\"Faith-Based\"},{\"id\":11,\"name\":\"Health & Medicine\"},{\"id\":7,\"name\":\"Homeless & Housing\"},{\"id\":39,\"name\":\"Hunger\"},{\"id\":41,\"name\":\"Immigrants & Refugees\"},{\"id\":29,\"name\":\"International\"},{\"id\":5,\"name\":\"Justice & Legal\"},{\"id\":31,\"name\":\"LGBT\"},{\"id\":40,\"name\":\"Media & Broadcasting\"},{\"id\":17,\"name\":\"People with Disabilities\"},{\"id\":6,\"name\":\"Politics\"},{\"id\":33,\"name\":\"Race & Ethnicity\"},{\"id\":12,\"name\":\"Seniors\"},{\"id\":19,\"name\":\"Sports & Recreation\"},{\"id\":43,\"name\":\"Veterans & Military Families\"},{\"id\":3,\"name\":\"Women\"}],\"grantFields\":null,\"greatFor\":null,\"hoursTrackingEmployeeEnteredOppFields\":[\"title\"],\"hoursTrackingEmployeeEnteredOrgFields\":[\"name\"],\"hoursTrackingFields\":null,\"memberFields\":null,\"opportunityTypes\":[{\"id\":\"private\",\"label\":\"Private\"},{\"id\":\"public\",\"label\":null},{\"id\":\"featured\",\"label\":\"Featured\"}],\"partners\":[{\"id\":79,\"name\":\"American Red Cross\"},{\"id\":61,\"name\":\"Junior Achievement\"},{\"id\":64,\"name\":\"Idaho Libraries\"},{\"id\":74,\"name\":\"National Church Residences\"},{\"id\":53,\"name\":\"California Libraries\"},{\"id\":39,\"name\":\"American Red Cross Blood Services\"},{\"id\":7,\"name\":\"National CASA\"},{\"id\":41,\"name\":\"National MS Society\"},{\"id\":47,\"name\":\"Easter Seals\"},{\"id\":50,\"name\":\"Girl Scouts\"}],\"passwordRules\":[\"Password should be at least 4 characters long.\"],\"radii\":[\"city\",\"subregion\",\"msa\",\"region\",\"country\",\"all\"],\"referralFields\":null,\"requiresRegistrationAddress\":false,\"standardRegistrationFields\":[{\"managed\":false,\"name\":\"acceptsTermsOfUse\"},{\"managed\":false,\"name\":\"firstName\"},{\"managed\":false,\"name\":\"lastName\"},{\"managed\":false,\"name\":\"email\"},{\"managed\":false,\"name\":\"phoneNumber\"},{\"managed\":false,\"name\":\"location:street1\"},{\"managed\":false,\"name\":\"location:street2\"},{\"managed\":false,\"name\":\"location:city\"},{\"managed\":false,\"name\":\"location:region\"},{\"managed\":false,\"name\":\"location:postalCode\"},{\"managed\":false,\"name\":\"location:country\"}],\"usCorps\":[{\"id\":2,\"name\":\"AmeriCorps\"},{\"id\":4,\"name\":\"Citizen Corps\"},{\"id\":7,\"name\":\"FGP\"},{\"id\":6,\"name\":\"RSVP\"},{\"id\":8,\"name\":\"SCP\"},{\"id\":5,\"name\":\"Senior Corps\"}],\"useHoursIncrements\":false,\"version\":4}';
 	public static final String searchOrganizationsJson = '{\"currentPage\":1,\"organizations\":[{\"avgRating\":0.0,\"categoryIds\":[25,13,7,39,19],\"classification\":\"501(c)(3) - Charitable Organization\",\"contact\":{\"firstName\":\"Alice\",\"lastName\":\"Wong\"},\"created\":\"2002-03-06T00:00:00-0800\",\"description\":\"One Brick is a 501(c)3 non-profit organization that brings volunteers together to support other local non-profits by adopting an innovative twist to the volunteer experience: we create a friendly and social atmosphere around volunteering, and after each volunteer event -- which typically lasts only 3 to 4 hours -- we invite volunteers to gather at a local restaurant or cafe where they can get to know one another in a relaxed social setting. Our \'commitment-free volunteering\' allows volunteers to choose when they volunteer, rather than having to make commitments for a certain number of volunteer hours, or agree to be available every week at a specific time.<\\/p>\",\"ein\":\"77-0593889\",\"id\":26278,\"imageUrl\":\"http%3A%2F%2Fwww.volunteermatch.org%2Fimages%2Fgallery%2FF30B5A34-7F1C-48D7-8402-C091DAFBCCCC_m\",\"location\":{\"city\":\"San Francisco\",\"country\":\"US\",\"geoLocation\":{\"accuracy\":\"premise\",\"latitude\":37.790321350097656,\"longitude\":-122.40421295166016},\"postalCode\":\"94108\",\"region\":\"CA\",\"street1\":\"237 Kearny Street #209\",\"street2\":null,\"street3\":null},\"mission\":\"One Brick provides support to local non-profit and community organizations by creating a unique, social and flexible volunteer environment for those interested in making a concrete difference in the community. This enables people to get involved, have an impact and have fun, without the requirements of individual long-term commitments.<\\/p>\",\"name\":\"One Brick\",\"numReviews\":0,\"plaintextDescription\":\"One Brick is a 501(c)3 non-profit organization that brings volunteers together to support other local non-profits by adopting an innovative twist to the volunteer experience: we create a friendly and social atmosphere around volunteering, and after each volunteer event -- which typically lasts only 3 to 4 hours -- we invite volunteers to gather at a local restaurant or cafe where they can get to know one another in a relaxed social setting. Our \'commitment-free volunteering\' allows volunteers to choose when they volunteer, rather than having to make commitments for a certain number of volunteer hours, or agree to be available every week at a specific time.\",\"plaintextMission\":\"One Brick provides support to local non-profit and community organizations by creating a unique, social and flexible volunteer environment for those interested in making a concrete difference in the community. This enables people to get involved, have an impact and have fun, without the requirements of individual long-term commitments.\",\"type\":\"public\",\"updated\":\"2015-04-25T05:12:33-0700\",\"vmUrl\":\"http%3A%2F%2Fwww.volunteermatch.org%2Fresults%2Forg_detail.jsp%3Forgid%3D26278%26apiAccountName%3DSalesforce\"}],\"resultsSize\":1}\r\n';
 	public static final String searchOpportunitiesJson = '{\"currentPage\":1,\"opportunities\":[{\"allowGroupInvitations\":false,\"allowGroupReservation\":false,\"availability\":{\"endDate\":\"2016-05-06\",\"endTime\":\"17:00:00\",\"ongoing\":false,\"singleDayOpportunity\":false,\"startDate\":\"2015-08-24\",\"startTime\":\"09:00:00\"},\"beneficiary\":123,\"categoryIds\":[34,25,17],\"contact\":{\"firstName\":\"Judith\",\"lastName\":\"Zoon\"},\"created\":\"2012-10-30T12:38:54-0700\",\"description\":\"The Dr. Elias and Florence Katz Gallery and gift shop are open to the public from 9 to 4 pm Monday through Friday, and 10-3 pm on Saturdays. Learn the basics of store displays, maintining an online store, and curating artwork. Install artwork, learn about the art and the artists, create displays and process sales. Online tasks require basic photography, photo editing, and writing skills. Training on website interface provided. Works with Director of Art Sales and Exhibitions and Store Manager.<\\/p>\",\"greatFor\":[\"s\"],\"hasWaitList\":false,\"id\":1230894,\"imageUrl\":\"http%3A%2F%2Fwww.volunteermatch.org%2Fimages%2Fgallery%2F1BBF2CE6-F119-C01A-91DE-BAAFD3C4D0BB_m\",\"location\":{\"city\":\"Richmond\",\"country\":\"US\",\"geoLocation\":{\"accuracy\":\"premise\",\"latitude\":37.9392,\"longitude\":-122.348},\"postalCode\":\"94804\",\"region\":\"CA\",\"street1\":\"NIAD Art Center\",\"street2\":\"551 23 Street\",\"street3\":\"Suite 100\"},\"minimumAge\":21,\"numReferred\":10,\"parentOrg\":{\"id\":501513,\"name\":\"NIAD Art Center\"},\"plaintextDescription\":\"The Dr. Elias and Florence Katz Gallery and gift shop are open to the public from 9 to 4 pm Monday through Friday, and 10-3 pm on Saturdays. Learn the basics of store displays, maintining an online store, and curating artwork. Install artwork, learn about the art and the artists, create displays and process sales. Online tasks require basic photography, photo editing, and writing skills. Training on website interface provided. Works with Director of Art Sales and Exhibitions and Store Manager.\",\"plaintextRequirements\":\"Orientation or Training; Background Check; Time Commitment:to be decided; Minimum Age:21;\",\"plaintextSkillsNeeded\":\"Business Analysis; Online Flash/Video Production; Reporting & Dashboards; Marketing & Communications (Mar/Com); Cost Analysis; Event Management;\",\"referralFields\":[{\"choices\":[\"Yes\",\"No\"],\"id\":11127,\"label\":\"Would you feel comfortable being trained to handle and show a non-venomous snake, such as a king snake or gopher snake?\",\"required\":true,\"type\":\"singlechoice\"},{\"choices\":null,\"id\":26293,\"label\":\"Are you at least 16 years old?\",\"required\":null,\"type\":\"singleline\"},{\"choices\":[\"Yes\",\"No\"],\"id\":10608,\"label\":\"Are you at least 18 years old?\",\"required\":null,\"type\":\"singlechoice\"}],\"referrals\":[{\"comments\":\"Hi, I live in Alameda, CA and I am very eager to start volunteer work for Hospice care. I am 36 yrs. old, I am getting my MFA from Academy of Art University and I have bachelor in Architecture and painting, I have good art visual and I make crafts, use mix media for my photographs and I work as art teacher in ICCNC in Oakland and different kindergarten in my country. I am also very good listener and I’m so patient. Please let me know if I am eligible to help specially that I have a lot of free time on my hand. You can see some my work on facebook FarnazT photography. Thanks Farnaz\",\"created\":\"2013-06-05T20:39:35-0700\",\"member\":{\"primaryKey\":\"blahblah@gmail.com\"},\"opportunity\":{\"id\":1230894},\"position\":1,\"referralFields\":[],\"status\":\"unknown\"},{\"comments\":\"I\'m interested in volunteering and was wondering what the steps are?\",\"created\":\"2013-11-08T20:59:08-0800\",\"member\":{\"primaryKey\":\"blahblahblah@gmail.com\"},\"opportunity\":{\"id\":1230894},\"position\":1,\"referralFields\":[],\"status\":\"unknown\"}],\"requirements\":\"Orientation or Training<\\/li>Background Check<\\/li>Time Commitment:to be decided<\\/li>Minimum Age:21<\\/li><\\/ul>\",\"requirementsMap\":{\"orientationRequired\":true,\"minAge\":21,\"timeCommitment\":\"to be decided\",\"backgroundCheckRequired\":true},\"requiresAddress\":false,\"skillsList\":[\"Internet Research\",\"Problem Solving\",\"Basic Computer Skills\",\"Community Outreach\",\"Relationship Building\",\"Data Entry\"],\"skillsNeeded\":\"Public Speaking<\\/strong><\\/li>Transportation<\\/strong><\\/li>Telecommunications<\\/strong><\\/li>Elder care<\\/strong><\\/li>Community Outreach<\\/strong><\\/li>Reading /Writing<\\/strong><\\/li><\\/ul>\",\"spacesAvailable\":15,\"status\":\"active\",\"tags\":\"Sales, art\",\"title\":\"Art Sales assistant\",\"type\":\"public\",\"updated\":\"2015-03-03T00:00:11-0800\",\"virtual\":false,\"vmUrl\":\"http%3A%2F%2Fwww.volunteermatch.org%2Fresults%2Fopp_detail.jsp%3Foppid%3D1230894%26apiAccountName%3DSalesforce\",\"volunteersNeeded\":30}],\"resultsSize\":1,\"sortCriteria\":\"none\"}';
 
@@ -18,6 +19,22 @@ private class VolunteerMatchTest {
 		System.assertNotEquals(null, hw.responseJson);
 		System.assertEquals('Kemp', hw.name);
 		System.assertEquals('Hello Kemp!', hw.result);
+    }
+
+    // Test case for getting metadata
+    private static testMethod void testGetMetaData() {
+		Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator());
+
+		test.startTest();
+		VolunteerMatch vm = new VolunteerMatch('somebody@salesforce.com','password');
+	 	VolunteerMatch.MetaData md = vm.getMetaData();
+		system.debug(md);
+		test.stopTest();
+
+		System.assertNotEquals(null, md.responseJson);
+		System.assertEquals(29, md.categories.size());
+		System.assertEquals('Computers & Technology', md.categories[6].name);
+		System.assertEquals('American Red Cross', md.partners[0].name);
     }
 
     // Test case for searching organziations
@@ -282,6 +299,7 @@ private class VolunteerMatchTest {
 			String testResponse =
 			(response != null) ? response :
 			(req.getEndpoint().containsIgnoreCase('helloWorld')) ? helloWorldJson :
+			(req.getEndpoint().containsIgnoreCase('getMetaData')) ? getMetaDataJson :
 			(req.getEndpoint().containsIgnoreCase('searchOrganizations')) ? searchOrganizationsJson :
 			(req.getEndpoint().containsIgnoreCase('searchOpportunities')) ? searchOpportunitiesJson :
 			null;
@@ -296,6 +314,284 @@ private class VolunteerMatchTest {
 
 	/*
 	SAMPLE DATA FROM VOLUNTEERMATCH API:
+
+	GET /api/call?action=getMetaData&query={}
+
+	RESPONSE:
+	{
+	    "categories": [
+	        {
+	            "id": 23,
+	            "name": "Advocacy & Human Rights"
+	        },
+	        {
+	            "id": 30,
+	            "name": "Animals"
+	        },
+	        {
+	            "id": 34,
+	            "name": "Arts & Culture"
+	        },
+	        {
+	            "id": 38,
+	            "name": "Board Development"
+	        },
+	        {
+	            "id": 22,
+	            "name": "Children & Youth"
+	        },
+	        {
+	            "id": 25,
+	            "name": "Community"
+	        },
+	        {
+	            "id": 37,
+	            "name": "Computers & Technology"
+	        },
+	        {
+	            "id": 14,
+	            "name": "Crisis Support"
+	        },
+	        {
+	            "id": 42,
+	            "name": "Disaster Relief"
+	        },
+	        {
+	            "id": 15,
+	            "name": "Education & Literacy"
+	        },
+	        {
+	            "id": 28,
+	            "name": "Emergency & Safety"
+	        },
+	        {
+	            "id": 27,
+	            "name": "Employment"
+	        },
+	        {
+	            "id": 13,
+	            "name": "Environment"
+	        },
+	        {
+	            "id": 36,
+	            "name": "Faith-Based"
+	        },
+	        {
+	            "id": 11,
+	            "name": "Health & Medicine"
+	        },
+	        {
+	            "id": 7,
+	            "name": "Homeless & Housing"
+	        },
+	        {
+	            "id": 39,
+	            "name": "Hunger"
+	        },
+	        {
+	            "id": 41,
+	            "name": "Immigrants & Refugees"
+	        },
+	        {
+	            "id": 29,
+	            "name": "International"
+	        },
+	        {
+	            "id": 5,
+	            "name": "Justice & Legal"
+	        },
+	        {
+	            "id": 31,
+	            "name": "LGBT"
+	        },
+	        {
+	            "id": 40,
+	            "name": "Media & Broadcasting"
+	        },
+	        {
+	            "id": 17,
+	            "name": "People with Disabilities"
+	        },
+	        {
+	            "id": 6,
+	            "name": "Politics"
+	        },
+	        {
+	            "id": 33,
+	            "name": "Race & Ethnicity"
+	        },
+	        {
+	            "id": 12,
+	            "name": "Seniors"
+	        },
+	        {
+	            "id": 19,
+	            "name": "Sports & Recreation"
+	        },
+	        {
+	            "id": 43,
+	            "name": "Veterans & Military Families"
+	        },
+	        {
+	            "id": 3,
+	            "name": "Women"
+	        }
+	    ],
+	    "grantFields": null,
+	    "greatFor": null,
+	    "hoursTrackingEmployeeEnteredOppFields": [
+	        "title"
+	    ],
+	    "hoursTrackingEmployeeEnteredOrgFields": [
+	        "name"
+	    ],
+	    "hoursTrackingFields": null,
+	    "memberFields": null,
+	    "opportunityTypes": [
+	        {
+	            "id": "private",
+	            "label": "Private"
+	        },
+	        {
+	            "id": "public",
+	            "label": null
+	        },
+	        {
+	            "id": "featured",
+	            "label": "Featured"
+	        }
+	    ],
+	    "partners": [
+	        {
+	            "id": 79,
+	            "name": "American Red Cross"
+	        },
+	        {
+	            "id": 61,
+	            "name": "Junior Achievement"
+	        },
+	        {
+	            "id": 64,
+	            "name": "Idaho Libraries"
+	        },
+	        {
+	            "id": 74,
+	            "name": "National Church Residences"
+	        },
+	        {
+	            "id": 53,
+	            "name": "California Libraries"
+	        },
+	        {
+	            "id": 39,
+	            "name": "American Red Cross Blood Services"
+	        },
+	        {
+	            "id": 7,
+	            "name": "National CASA"
+	        },
+	        {
+	            "id": 41,
+	            "name": "National MS Society"
+	        },
+	        {
+	            "id": 47,
+	            "name": "Easter Seals"
+	        },
+	        {
+	            "id": 50,
+	            "name": "Girl Scouts"
+	        }
+	    ],
+	    "passwordRules": [
+	        "Password should be at least 4 characters long."
+	    ],
+	    "radii": [
+	        "city",
+	        "subregion",
+	        "msa",
+	        "region",
+	        "country",
+	        "all"
+	    ],
+	    "referralFields": null,
+	    "requiresRegistrationAddress": false,
+	    "standardRegistrationFields": [
+	        {
+	            "managed": false,
+	            "name": "acceptsTermsOfUse"
+	        },
+	        {
+	            "managed": false,
+	            "name": "firstName"
+	        },
+	        {
+	            "managed": false,
+	            "name": "lastName"
+	        },
+	        {
+	            "managed": false,
+	            "name": "email"
+	        },
+	        {
+	            "managed": false,
+	            "name": "phoneNumber"
+	        },
+	        {
+	            "managed": false,
+	            "name": "location:street1"
+	        },
+	        {
+	            "managed": false,
+	            "name": "location:street2"
+	        },
+	        {
+	            "managed": false,
+	            "name": "location:city"
+	        },
+	        {
+	            "managed": false,
+	            "name": "location:region"
+	        },
+	        {
+	            "managed": false,
+	            "name": "location:postalCode"
+	        },
+	        {
+	            "managed": false,
+	            "name": "location:country"
+	        }
+	    ],
+	    "usCorps": [
+	        {
+	            "id": 2,
+	            "name": "AmeriCorps"
+	        },
+	        {
+	            "id": 4,
+	            "name": "Citizen Corps"
+	        },
+	        {
+	            "id": 7,
+	            "name": "FGP"
+	        },
+	        {
+	            "id": 6,
+	            "name": "RSVP"
+	        },
+	        {
+	            "id": 8,
+	            "name": "SCP"
+	        },
+	        {
+	            "id": 5,
+	            "name": "Senior Corps"
+	        }
+	    ],
+	    "useHoursIncrements": false,
+	    "version": 4
+	}
+
 
 	GET /api/call?action=searchOrganizations&query=
 	{
