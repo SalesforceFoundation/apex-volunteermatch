@@ -10,10 +10,14 @@ Usage:
 	VolunteerMatch vm = new VolunteerMatch('MyAccountName', 'MySecretAPIKey');
 	System.debug(vm.helloWorld('Chris').result);
 
-	// Initialize the API class with the Account Name and Secret API Key stored in Custom
-	// Settings, VolunteerMatch_Settings__c
+	// Hello World example
 	vm = new VolunteerMatch();
 	System.debug(vm.helloWorld('Chris').result);
+
+	// Get MetaData example
+    for(VolunteerMatch.Category c : vm.getMetaData().categories) {
+        System.debug(c.id + ' => ' + c.name);
+    }
 
     ////////////////// searchOrganizations examples //////////////////
 

@@ -39,31 +39,41 @@ global virtual with sharing class VolunteerMatch {
 	}
 
 	public class MetaData {
-		public List<Categories> categories;
+		public List<Category> categories;
 		public List<String> hoursTrackingEmployeeEnteredOppFields;
 		public List<String> hoursTrackingEmployeeEnteredOrgFields;
-		public List<OpportunityTypes> opportunityTypes;
-		public List<Categories> partners;
+		public List<OpportunityType> opportunityTypes;
+		public List<Partner> partners;
 		public List<String> passwordRules;
 		public List<String> radii;
-		public List<StandardRegistrationFields> standardRegistrationFields;
-		public List<Categories> usCorps;
+		public List<StandardRegistrationField> standardRegistrationFields;
+		public List<usCorps> usCorps;
 		public Boolean useHoursIncrements;
 		public Integer version;
 		public String responseJson;
 	}
 
-	public class OpportunityTypes {
+	public class OpportunityType {
 		public String id;
 		public String label;
 	}
 
-	public class StandardRegistrationFields {
+	public class StandardRegistrationField {
 		public Boolean managed;
 		public String name;
 	}
 
-	public class Categories {
+	public class Category {
+		public Integer id;
+		public String name;
+	}
+
+	public class Partner {
+		public Integer id;
+		public String name;
+	}
+
+	public class UsCorps {
 		public Integer id;
 		public String name;
 	}
